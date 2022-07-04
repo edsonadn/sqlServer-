@@ -127,3 +127,36 @@ insert into empleados(nombre,documento,sexo,domicilio,sueldobasico)
  values('juan Perez','123sdoos','M','calle santa anita',5000);
 
 select * from empleados;
+
+/* Ejemplo 7*/
+
+USE TestData  
+GO
+
+IF OBJECT_ID('Products') is not null
+	drop table Products
+
+CREATE TABLE dbo.Products  
+   (ProductID int PRIMARY KEY NOT NULL,  
+   ProductName varchar(25) NOT NULL,  
+   Price money NULL,  
+   ProductDescription varchar(max) NULL)  
+GO
+
+INSERT dbo.Products (ProductID, ProductName, Price, ProductDescription)  
+    VALUES (1, 'Clamp', 12.48, 'Workbench clamp')  
+GO  
+
+SELECT * FROM Products
+
+TRUNCATE TABLE TestData.dbo.Products;
+GO
+
+SELECT * FROM Products
+
+
+INSERT dbo.Products (ProductName, ProductID, Price, ProductDescription)  
+    VALUES ('Screwdriver', 50, 3.17, 'Flat head')  
+GO
+
+SELECT * FROM Products
